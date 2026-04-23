@@ -1,35 +1,51 @@
 .emptyState {
   display: grid;
   place-items: center;
-  gap: 0.7rem;
-  padding: 2rem;
-  border: 1px dashed rgba(255, 255, 255, 0.12);
-  border-radius: 1.4rem;
-  background:
-    linear-gradient(180deg, rgba(31, 31, 31, 0.96), rgba(24, 24, 24, 0.94)),
-    radial-gradient(circle at bottom right, rgba(255, 153, 102, 0.12), transparent 28%);
+  gap: 1rem;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+
+  /* Glass effect */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* Sombra suave */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
   text-align: center;
 }
 
 .icon {
-  display: inline-block;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 1rem;
-  background: rgba(141, 240, 168, 0.1);
-  color: #8df0a8;
-  font-size: 2rem;
-  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1.2rem;
+
+  background: linear-gradient(135deg, #6c63ff, #4facfe);
+  color: white;
+
+  font-size: 1.8rem;
+  font-weight: bold;
+
+  box-shadow: 0 4px 12px rgba(79, 172, 254, 0.4);
 }
 
 .title {
   margin: 0;
-  font-size: 1.4rem;
-  color: #f2f2f2;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 .description {
-  max-width: 32rem;
+  max-width: 30rem;
   margin: 0;
-  color: #a7a7a7;
+  font-size: 0.95rem;
+  color: #cfcfcf;
+  line-height: 1.5;
 }

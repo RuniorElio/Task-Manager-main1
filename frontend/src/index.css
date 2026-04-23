@@ -1,16 +1,31 @@
 :root {
-  font-family: "Segoe UI", "Inter", sans-serif;
-  color: #ececec;
+  font-family: "Inter", "Segoe UI", sans-serif;
+
+  color: #e6e6e6;
+
+  /* Fondo moderno */
   background:
-    radial-gradient(circle at top, rgba(98, 214, 124, 0.12), transparent 22%),
-    linear-gradient(180deg, #151515 0%, #101010 100%);
+    radial-gradient(circle at top left, rgba(108, 99, 255, 0.15), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(79, 172, 254, 0.12), transparent 35%),
+    linear-gradient(180deg, #0a0d18 0%, #06080f 100%);
+
   color-scheme: dark;
+
+  /* Variables (MUY IMPORTANTE) */
+  --primary: #6c63ff;
+  --secondary: #4facfe;
+  --glass: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: #ffffff;
+  --text-secondary: #bfbfbf;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Reset limpio */
 * {
   box-sizing: border-box;
 }
@@ -26,6 +41,7 @@ body {
   min-width: 320px;
 }
 
+/* Inputs y botones heredan tipografía */
 button,
 input,
 textarea {

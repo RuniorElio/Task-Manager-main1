@@ -2,39 +2,79 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.8rem;
   margin-bottom: 1rem;
-  gap: 1rem;
 }
 
+/* Input búsqueda */
 .search {
   flex: 1;
-  padding: 0.6rem;
-  border-radius: 0.6rem;
-  border: 1px solid rgba(255,255,255,0.1);
-  background: rgba(255,255,255,0.05);
-  color: white;
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.7rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+
+  color: #ffffff;
   outline: none;
+
+  transition: all 0.2s ease;
 }
 
+.search::placeholder {
+  color: #8a8a8a;
+}
+
+/* Focus moderno */
+.search:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* Botones */
 .buttons {
   display: flex;
   gap: 0.5rem;
 }
 
 .buttons button {
-  padding: 0.5rem 0.8rem;
-  border-radius: 0.6rem;
-  border: none;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.7rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+
+  color: #e0e0e0;
   cursor: pointer;
-  background: rgba(255,255,255,0.08);
+
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+.buttons button:hover {
+  background: linear-gradient(135deg, #6c63ff, #4facfe);
+  border: none;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Botón activo (MUY IMPORTANTE UX) */
+.buttons button.active {
+  background: linear-gradient(135deg, #6c63ff, #4facfe);
+  border: none;
   color: white;
 }
 
-.buttons button:hover {
-  background: rgba(255,255,255,0.15);
-}
+/* Responsive */
+@media (max-width: 600px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-.search:focus {
-  border-color: #8df0a8;
-  background: rgba(255, 255, 255, 0.06);
+  .buttons {
+    justify-content: space-between;
+  }
 }
