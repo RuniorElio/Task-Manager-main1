@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "dev": "ts-node-dev src/index.ts",
-  "build": "tsc",
-  "postinstall": "prisma generate",
-
-  
-  "start": "node dist/src/index.js",
-  "deploy": "prisma migrate deploy"
-},
+    "dev": "ts-node-dev src/index.ts",
+    "build": "tsc",
+    "lint": "eslint .",
+    "postinstall": "prisma generate",
+    "start": "node dist/src/index.js",
+    "deploy": "prisma migrate deploy"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -28,10 +27,15 @@
     "prisma": "^7.7.0"
   },
   "devDependencies": {
+    "@eslint/create-config": "^2.0.0",
+    "@eslint/js": "^10.0.1",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
-    "@types/node": "^25.6.0",
+    "@types/node": "^25.9.5",
+    "eslint": "^10.6.0",
+    "globals": "^17.7.0",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.63.0"
   }
 }

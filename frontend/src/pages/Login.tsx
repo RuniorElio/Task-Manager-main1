@@ -9,20 +9,24 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onSubmit = async (e: any) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setIsLoading(true);
     try {
       await handleLogin(email, password);
       window.location.href = "/";
-    } catch (error: any) {
-      alert(error.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("Ocurrió un error inesperado.");
+      }
     } finally {
       setIsLoading(false);
     }
   };
-  
+
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -58,8 +62,10 @@ const Login = () => {
             Ingresar
           </button>
         </form>
+
         <p className={styles.registerText}>
-          ¿No tienes cuenta? <a href="/register" className={styles.link}>
+          ¿No tienes cuenta?{" "}
+          <a href="/register" className={styles.link}>
             Regístrate
           </a>
         </p>

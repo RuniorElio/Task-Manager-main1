@@ -1,5 +1,7 @@
 # Task Manager
 
+[![CI](https://github.com/RuniorElio/Task-Manager-main1/actions/workflows/ci.yml/badge.svg)](https://github.com/RuniorElio/Task-Manager-main1/actions/workflows/ci.yml)
+
 Aplicación web Full Stack para la gestión de tareas, que permite a los usuarios registrarse, iniciar sesión y administrar sus tareas mediante operaciones de creación, edición, eliminación y seguimiento.
 
 <!-- BADGE_CI -->

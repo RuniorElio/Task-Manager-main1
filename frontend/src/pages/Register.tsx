@@ -12,14 +12,20 @@ function Register() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const onSubmit = async (e: any) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     setIsLoading(true);
+
     try {
       await handleRegister(email, password);
       window.location.href = "/login";
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Ocurrió un error inesperado.");
+      }
     } finally {
       setIsLoading(false);
     }
@@ -28,6 +34,7 @@ function Register() {
   return (
     <div className={styles.loginContainer}>
       {isLoading ? <Loader /> : null}
+
       <div className={styles.loginCard}>
         <span className={styles.subtitle}>TASK MANAGER</span>
         <h2 className={styles.title}>Crear cuenta</h2>
@@ -48,7 +55,10 @@ function Register() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button className={styles.button}>Registrarse</button>
+          <button className={styles.button} type="submit">
+            Registrarse
+          </button>
+
           <button
             type="button"
             onClick={() => navigate("/login")}
