@@ -5,7 +5,7 @@ Aplicación web Full Stack para la gestión de tareas, que permite a los usuario
 <!-- BADGE_CI -->
 
 <p align="center">
-  <img width="1455" height="906" alt="Task Manager" src="https://github.com/user-attachments/assets/6c49624f-f2bd-4ab0-8b05-ff2194b833c6" />
+  <img width="1235" height="671" alt="Captura" src="https://github.com/user-attachments/assets/c5b27ddb-8fa0-4791-bb16-30b445dc32bb" />
 </p>
 
 ## Tecnologías utilizadas
