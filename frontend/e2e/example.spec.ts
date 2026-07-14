@@ -1,6 +1,17 @@
 import { test, expect } from "@playwright/test";
 
-test("el usuario puede iniciar sesión y crear una tarea", async ({ page }) => {
+test("el usuario puede iniciar sesión y crear una tarea", async ({
+  page,
+  request,
+}) => {
+  // Crear el usuario de prueba (si ya existe, ignoramos el error)
+  await request.post("http://localhost:3000/auth/register", {
+    data: {
+      email: "admin@test.com",
+      password: "123456",
+    },
+  });
+
   // Ir al login
   await page.goto("/login");
 
@@ -11,12 +22,14 @@ test("el usuario puede iniciar sesión y crear una tarea", async ({ page }) => {
   await page.getByRole("button", { name: "Ingresar" }).click();
 
   // Verificar que redirige a la aplicación
-  await expect(page).toHaveURL(/\/$/);
+  await expect(page).toHaveURL("http://localhost:5173/");
 
   // Crear una tarea
   const taskName = `Prueba Playwright ${Date.now()}`;
 
-  await page.getByLabel("Nueva tarea").fill(taskName);
+  await page
+    .getByPlaceholder("Ej. Elaborar el proyecto final")
+    .fill(taskName);
 
   await page.getByRole("button", { name: "Agregar tarea" }).click();
 
