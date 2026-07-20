@@ -39,6 +39,7 @@ function TaskInput({ onAddTask, isLoading }: TaskInputProps) {
 
       <div className={styles.inputRow}>
         <input
+          aria-label="Nueva tarea"
           className={styles.input}
           type="text"
           placeholder="Ej. Elaborar el proyecto final"
