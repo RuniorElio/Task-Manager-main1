@@ -190,3 +190,31 @@ jobs:
       - name: Run Playwright
         working-directory: frontend
         run: npx playwright test
+  # ==========================================================
+  # DEPLOY STAGING - RAILWAY
+  # Se ejecuta solo en main y si todos los jobs anteriores
+  # terminaron correctamente
+  # ==========================================================
+  deploy-staging:
+    name: Deploy Staging - Railway
+    runs-on: ubuntu-latest
+
+    needs:
+      - frontend
+      - backend
+      - tests
+      - e2e
+
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
+      - name: Deploy to Railway
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: railway up --service Task-Manager-main1
