@@ -5,11 +5,12 @@ const tseslint = require("typescript-eslint");
 module.exports = tseslint.config(
   {
     ignores: [
-  "dist/**",
-  "node_modules/**",
-  "eslint.config.js",
-  "prisma.config.ts"
-]
+      "dist/**",
+      "node_modules/**",
+      "eslint.config.js",
+      "prisma.config.ts",
+      "prisma/seed.js"
+    ]
   },
 
   js.configs.recommended,
