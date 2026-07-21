@@ -1,0 +1,28 @@
+name: Deploy Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: 'Escribe DEPLOY para confirmar el despliegue a produccion'
+        required: true
+        type: string
+
+jobs:
+  deploy-production:
+    name: Deploy Production - Railway
+    runs-on: ubuntu-latest
+
+    if: github.event.inputs.confirmation == 'DEPLOY'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
+      - name: Deploy to Railway Production
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_PRODUCTION_TOKEN }}
+        run: railway up --service Task-Manager-main1
