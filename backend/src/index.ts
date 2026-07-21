@@ -26,11 +26,7 @@ app.use("/auth", require("./routes/auth"));
 app.use("/test", require("./routes/test"));
 
 
-// Fallo intencional para el Laboratorio 3 - Simulacro de Caos
-// En GitHub Actions (CI) no se activa; al desplegar en Railway sí.
-if (!process.env.GITHUB_ACTIONS) {
-  throw new Error("fallo simulado");
-}
+
 
 
 
@@ -39,3 +35,4 @@ if (!process.env.GITHUB_ACTIONS) {
 app.listen(PORT, () => {
   console.log(`El servidor esta corriendo en el puerto ${PORT}`);
 });
+
